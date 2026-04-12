@@ -28,7 +28,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background: rgba(26, 46, 68, 0.85);
+  background: rgba(26, 46, 68, 0.65);
   backdrop-filter: blur(12px);
 }
 
