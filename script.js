@@ -1,5 +1,11 @@
 const backToTopBtn = document.getElementById('backToTop');
 const heroScroll = document.querySelector('.hero-scroll');
+const heroVideo = document.querySelector('.hero-bg');
+
+// Set video playback speed to 0.5x
+if (heroVideo && heroVideo.tagName === 'VIDEO') {
+  heroVideo.playbackRate = 0.5;
+}
 
 window.addEventListener('scroll', () => {
   // Back to top button visibility
