@@ -8,9 +8,9 @@ const heroFade = document.querySelector('.hero-fade');
 if (heroVideo && heroVideo.tagName === 'VIDEO') {
   heroVideo.playbackRate = 0.5;
   
-  // Handle video fadeout after 15 seconds
+  // Handle video fadeout after 10 seconds
   heroVideo.addEventListener('timeupdate', () => {
-    if (heroVideo.currentTime >= 15 && !heroVideo.classList.contains('hidden')) {
+    if (heroVideo.currentTime >= 10 && !heroVideo.classList.contains('hidden')) {
       heroVideo.classList.add('hidden');
       heroImage.classList.add('show');
       heroFade.classList.add('show');
