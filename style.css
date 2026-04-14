@@ -228,7 +228,8 @@ nav {
   overflow: hidden;
 }
 
-.intro-img img {
+.intro-img img,
+.intro-img video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -236,7 +237,8 @@ nav {
   transition: transform 6s ease;
 }
 
-.intro-img:hover img { transform: scale(1.04); }
+.intro-img:hover img,
+.intro-img:hover video { transform: scale(1.04); }
 
 .intro-text {
   background: var(--navy);
@@ -317,14 +319,16 @@ nav {
   overflow: hidden;
 }
 
-.card-img img {
+.card-img img,
+.card-img video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
 }
 
-.card-esperienza:hover .card-img img { transform: scale(1.06); }
+.card-esperienza:hover .card-img img,
+.card-esperienza:hover .card-img video { transform: scale(1.06); }
 
 .card-body {
   padding: 32px 28px;
