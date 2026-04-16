@@ -3,8 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niña – Escursioni in Barca · Lampedusa</title>
-  <meta name="description" content="Scopri Lampedusa dal mare con la barca Niña. Gite giornaliere alle calette più belle e gite al tramonto con aperitivo. Prenota al 333 811 8541.">
+
+  <!-- ═══ SEO PRIMARIO ═══ -->
+  <!-- NOTA: sostituire "https://nina-lampedusa.it" con il dominio definitivo del sito -->
+  <title>Gite in Barca a Lampedusa | Escursioni con Niña – Calette &amp; Tramonto</title>
+  <meta name="description" content="Scopri le calette più belle di Lampedusa a bordo di Niña: gita giornaliera (Tabaccara, Cala Pulcino, pranzo incluso), gita al tramonto con aperitivo e charter esclusivi. Prenota: 333 811 8541.">
+  <meta name="keywords" content="gita in barca Lampedusa, escursioni Lampedusa, boat trip Lampedusa, calette Lampedusa, Tabaccara Lampedusa, Cala Pulcino Lampedusa, tramonto Lampedusa, giro dell'isola Lampedusa, noleggio barca Lampedusa, tour Lampedusa, Isole Pelagie barca">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Niña – Escursioni in Barca Lampedusa">
+  <link rel="canonical" href="https://nina-lampedusa.it/">
+
+  <!-- ═══ GEO / LOCAL SEO ═══ -->
+  <meta name="geo.region" content="IT-AG">
+  <meta name="geo.placename" content="Lampedusa, Agrigento, Sicilia, Italia">
+  <meta name="geo.position" content="35.5128;12.6050">
+  <meta name="ICBM" content="35.5128, 12.6050">
+
+  <!-- ═══ OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ═══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nina-lampedusa.it/">
+  <meta property="og:title" content="Gite in Barca a Lampedusa – Niña Escursioni">
+  <meta property="og:description" content="Scopri le calette più belle di Lampedusa a bordo di Niña. Gita giornaliera, tramonto con aperitivo e gite esclusive. Partenza dal Porto Vecchio. Prenota ora!">
+  <meta property="og:image" content="https://nina-lampedusa.it/img/hero.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mare cristallino di Lampedusa visto dalla barca Niña">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Niña – Escursioni in Barca Lampedusa">
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gite in Barca a Lampedusa – Niña Escursioni">
+  <meta name="twitter:description" content="Calette, tramonto e acque cristalline. Scopri Lampedusa a bordo di Niña, dal Porto Vecchio.">
+  <meta name="twitter:image" content="https://nina-lampedusa.it/img/hero.jpeg">
+
+  <!-- ═══ HREFLANG ═══ -->
+  <link rel="alternate" hreflang="it" href="https://nina-lampedusa.it/">
+  <link rel="alternate" hreflang="x-default" href="https://nina-lampedusa.it/">
+
+  <!-- ═══ FONTS & STYLES ═══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,12 +52,13 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">
-      <img src="img/logo.jpeg" alt="Niña – Escursioni in Barca Lampedusa">
+      <img src="img/logo.jpeg" alt="Niña – Escursioni in Barca Lampedusa" width="48" height="48">
       <span class="nav-tagline">Escursioni in Barca &middot; Lampedusa &middot; P.to Vecchio</span>
     </div>
     <ul class="nav-links">
       <li><a href="#esperienze">Le esperienze</a></li>
       <li><a href="#gallery">Galleria</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contatti">Prenota</a></li>
     </ul>
     <button class="nav-burger" aria-label="Menu" aria-expanded="false">
@@ -30,6 +68,7 @@
   <div class="nav-mobile-menu" aria-hidden="true">
     <a href="#esperienze">Le esperienze</a>
     <a href="#gallery">Galleria</a>
+    <a href="#faq">FAQ</a>
     <a href="#contatti">Prenota</a>
   </div>
 
@@ -37,7 +76,7 @@
   <section class="hero">
     <video class="hero-bg" autoplay muted loop playsinline poster="img/hero.jpeg" id="heroVideo">
       <source src="img/hero-video.mp4" type="video/mp4">
-      <img src="img/hero.jpeg" alt="Fallback hero image">
+      <img src="img/hero.jpeg" alt="Fallback hero image" fetchpriority="high">
     </video>
     <img class="hero-image" src="img/hero.jpeg" alt="Lampedusa seascape">
     <div class="hero-fade"></div>
@@ -88,7 +127,7 @@
       <!-- Gita Giornaliera -->
       <div class="card-esperienza">
         <div class="card-img">
-          <img src="img/caletta.jpeg" alt="Calette di Lampedusa viste dal mare">
+          <img src="img/caletta.jpeg" alt="Calette di Lampedusa viste dal mare" loading="lazy">
         </div>
         <div class="card-body">
           <span class="card-tag tag-day">Gita giornaliera</span>
@@ -134,7 +173,7 @@
       <!-- Gita Esclusiva -->
       <div class="card-esperienza">
         <div class="card-img">
-          <img src="img/barca1.jpeg" alt="La barca Niña a Lampedusa">
+          <img src="img/barca1.jpeg" alt="La barca Niña a Lampedusa" loading="lazy">
         </div>
         <div class="card-body">
           <span class="card-tag tag-exclusive">Gita esclusiva</span>
@@ -161,11 +200,92 @@
     </div>
 
     <div class="gallery-grid">
-      <img class="g1" src="img/gallery1.jpeg" alt="Caletta vista dall'alto">
-      <img class="g2" src="img/barca.jpeg" alt="Barche nelle acque turchesi">
-      <img class="g3" src="img/barca1.jpeg"  alt="La barca Niña">
-      <img class="g4" src="img/barca2.jpeg"  alt="La barca Niña a Lampedusa">
-      <img class="g5" src="img/barca3.jpeg"  alt="La barca Niña in navigazione">
+      <img class="g1" src="img/gallery1.jpeg" alt="Caletta di Lampedusa vista dall'alto" loading="lazy">
+      <img class="g2" src="img/barca.jpeg" alt="Barca nelle acque turchesi di Lampedusa" loading="lazy">
+      <img class="g3" src="img/barca1.jpeg" alt="La barca Niña a Lampedusa" loading="lazy">
+      <img class="g4" src="img/barca2.jpeg" alt="Escursione in barca a Lampedusa con Niña" loading="lazy">
+      <img class="g5" src="img/barca3.jpeg" alt="Niña in navigazione nelle acque di Lampedusa" loading="lazy">
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+    <div class="section-header">
+      <p class="section-label">Domande frequenti</p>
+      <h2>Tutto quello<br>che vuoi sapere</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Da dove partono le gite in barca a Lampedusa?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Le gite partono dal <strong>Porto Vecchio di Lampedusa</strong>. Contattaci al <a href="tel:+393338118541">333 811 8541</a> per il punto di ritrovo esatto.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Quanto dura la gita giornaliera?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">La gita giornaliera dura circa <strong>7 ore</strong>: partenza alle <strong>10:00</strong> e rientro in porto verso le <strong>17:00</strong>. Pranzo con specialità del posto e bevande sono inclusi.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Quali calette si visitano?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Le mete principali sono la <strong>Baia della Tabaccara</strong>, <strong>Cala Pulcino</strong> e la <strong>costa nord</strong> dell'isola — luoghi raggiungibili solo dal mare, in base alle condizioni meteo.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Cosa include la gita al tramonto?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Aperitivo con spritz e stuzzichini, buona musica, sosta bagno serale e la possibilità di avvistare <strong>delfini e tartarughe</strong>. Partenza ~18:00, rientro dopo il tramonto.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">È possibile noleggiare la barca in esclusiva?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Sì. Organizziamo <strong>gite esclusive</strong> per gruppi e famiglie con itinerario su misura. Contattaci via WhatsApp per un preventivo personalizzato.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Come si prenota una gita in barca a Lampedusa?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Contattaci via <strong>WhatsApp</strong> o telefonando al <a href="tel:+393338118541">333 811 8541</a>. La disponibilità è limitata: ti consigliamo di prenotare con anticipo, specialmente in luglio e agosto.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+        <button class="faq-question" aria-expanded="false">
+          <span itemprop="name">Quando è la stagione delle gite in barca a Lampedusa?</span>
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+          <p itemprop="text">Le gite si svolgono prevalentemente da <strong>maggio a ottobre</strong>, con picco in luglio e agosto. Contattaci per verificare la disponibilità nella tua data.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -196,5 +316,146 @@
   <button id="backToTop" class="back-to-top" aria-label="Torna su">↑</button>
 
   <script src="script.js"></script>
+
+  <!-- ═══ JSON-LD STRUCTURED DATA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LocalBusiness", "TouristInformationCenter"],
+        "@id": "https://nina-lampedusa.it/#business",
+        "name": "Niña – Escursioni in Barca Lampedusa",
+        "description": "Gite in barca a Lampedusa: escursioni giornaliere alle calette più belle (Tabaccara, Cala Pulcino), gita al tramonto con aperitivo e charter esclusivi. Partenza dal Porto Vecchio di Lampedusa.",
+        "url": "https://nina-lampedusa.it/",
+        "telephone": "+393338118541",
+        "image": "https://nina-lampedusa.it/img/hero.jpeg",
+        "logo": "https://nina-lampedusa.it/img/logo.jpeg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Porto Vecchio",
+          "addressLocality": "Lampedusa",
+          "addressRegion": "AG",
+          "postalCode": "92010",
+          "addressCountry": "IT"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 35.5128,
+          "longitude": 12.6050
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+393338118541",
+          "contactType": "reservations",
+          "availableLanguage": ["Italian", "English"]
+        },
+        "priceRange": "€€",
+        "currenciesAccepted": "EUR",
+        "paymentAccepted": "Cash, Credit Card",
+        "areaServed": {
+          "@type": "Place",
+          "name": "Lampedusa, Isole Pelagie, Agrigento, Sicilia"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Gite in Barca Lampedusa",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "Gita Giornaliera in Barca a Lampedusa",
+              "description": "Partenza alle 10:00, rientro ~17:00. Visita a Baia della Tabaccara, Cala Pulcino e costa nord. Pranzo con specialità locali e bevande inclusi.",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "Gita al Tramonto con Aperitivo a Lampedusa",
+              "description": "Partenza ~18:00, rientro dopo il tramonto. Aperitivo con spritz e stuzzichini, sosta bagno serale, avvistamento delfini e tartarughe.",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR"
+            },
+            {
+              "@type": "Offer",
+              "name": "Gita Esclusiva in Barca a Lampedusa",
+              "description": "Charter privato per gruppi e famiglie con itinerario personalizzato. Su prenotazione.",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "EUR"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Da dove partono le gite in barca a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le gite in barca con Niña partono dal Porto Vecchio di Lampedusa. Contattaci al 333 811 8541 per il punto di ritrovo esatto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto dura la gita giornaliera in barca a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La gita giornaliera dura circa 7 ore: partenza alle 10:00 e rientro in porto verso le 17:00. Il pranzo con specialità del posto e le bevande sono inclusi nel prezzo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quali calette si visitano durante la gita in barca a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le mete principali sono la Baia della Tabaccara, Cala Pulcino e la costa nord dell'isola, luoghi raggiungibili solo dal mare, in base alle condizioni meteo del giorno."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cosa include la gita al tramonto a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La gita al tramonto include un aperitivo con spritz e stuzzichini, buona musica, sosta bagno serale e la possibilità di avvistare delfini e tartarughe. Partenza ~18:00, rientro dopo il tramonto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "È possibile noleggiare la barca in esclusiva a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sì. È possibile organizzare gite esclusive per gruppi o famiglie con itinerario su misura. Contattaci via WhatsApp al 333 811 8541 per un preventivo personalizzato."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come si prenota una gita in barca a Lampedusa con Niña?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puoi prenotare direttamente via WhatsApp o telefonando al 333 811 8541. La disponibilità è limitata: ti consigliamo di prenotare con anticipo, specialmente in alta stagione."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quando è la stagione delle gite in barca a Lampedusa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le gite in barca a Lampedusa si svolgono prevalentemente da maggio a ottobre, con picco in luglio e agosto. Contattaci per verificare la disponibilità nella data che preferisci."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
