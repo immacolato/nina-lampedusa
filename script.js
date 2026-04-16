@@ -3,6 +3,8 @@ const heroScroll = document.querySelector('.hero-scroll');
 const heroVideo = document.querySelector('.hero-bg');
 const heroImage = document.querySelector('.hero-image');
 const heroFade = document.querySelector('.hero-fade');
+const burger = document.querySelector('.nav-burger');
+const mobileMenu = document.querySelector('.nav-mobile-menu');
 
 // Set video playback speed to 0.5x
 if (heroVideo && heroVideo.tagName === 'VIDEO') {
@@ -41,3 +43,36 @@ backToTopBtn.addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
+
+// Hamburger menu toggle
+burger.addEventListener('click', () => {
+  const isOpen = burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', isOpen);
+  mobileMenu.setAttribute('aria-hidden', !isOpen);
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a, .nav-mobile-menu a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(section => observer.observe(section));
