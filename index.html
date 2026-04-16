@@ -313,11 +313,71 @@
     <img src="img/logo.jpeg" alt="Niña logo">
     <p class="footer-text">© 2026 Niña – Escursioni in Barca · Lampedusa · P.to Vecchio <br></br>
     Made by Luca Arenella</p>
-    <a href="https://www.instagram.com/gitainbarcacon_nina/" class="footer-instagram" target="_blank" rel="noopener" aria-label="Seguici su Instagram">📷 @gitainbarcacon_nina</a>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/gitainbarcacon_nina/" class="footer-instagram" target="_blank" rel="noopener" aria-label="Seguici su Instagram">📷 @gitainbarcacon_nina</a>
+      <a href="/privacy.html" class="footer-privacy">Privacy &amp; Cookie Policy</a>
+      <button id="openCookieSettings" class="footer-privacy footer-cookie-btn">Gestisci cookie</button>
+    </div>
   </footer>
 
   <!-- BACK TO TOP BUTTON -->
   <button id="backToTop" class="back-to-top" aria-label="Torna su">↑</button>
+
+  <!-- COOKIE BANNER -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Informativa cookie" aria-live="polite" hidden>
+    <div class="cookie-banner-inner">
+
+      <!-- Vista principale -->
+      <div id="cookieMain">
+        <p class="cookie-banner-text">
+          Questo sito usa cookie tecnici e, previo consenso, cookie analitici e di profilazione di terze parti.
+          <a href="/privacy.html">Privacy &amp; Cookie Policy</a>
+        </p>
+        <div class="cookie-banner-actions">
+          <button id="cookieAccept" class="cookie-btn cookie-btn-accept">Accetta tutto</button>
+          <button id="cookieCustomize" class="cookie-btn cookie-btn-customize">Personalizza</button>
+          <button id="cookieReject" class="cookie-btn cookie-btn-reject">Solo necessari</button>
+        </div>
+      </div>
+
+      <!-- Vista preferenze -->
+      <div id="cookiePrefs" class="cookie-prefs" hidden>
+        <p class="cookie-prefs-title">Gestisci le preferenze</p>
+        <div class="cookie-pref-row">
+          <div class="cookie-pref-info">
+            <span class="cookie-pref-name">Cookie tecnici</span>
+            <span class="cookie-pref-desc">Necessari al funzionamento del sito. Non richiedono consenso.</span>
+          </div>
+          <span class="cookie-always-on">Sempre attivi</span>
+        </div>
+        <div class="cookie-pref-row">
+          <div class="cookie-pref-info">
+            <span class="cookie-pref-name">Cookie analitici</span>
+            <span class="cookie-pref-desc">Google Analytics – statistiche anonime sulla navigazione.</span>
+          </div>
+          <label class="cookie-toggle" aria-label="Cookie analitici">
+            <input type="checkbox" id="toggleAnalytics">
+            <span></span>
+          </label>
+        </div>
+        <div class="cookie-pref-row">
+          <div class="cookie-pref-info">
+            <span class="cookie-pref-name">Cookie di marketing</span>
+            <span class="cookie-pref-desc">Meta Pixel – misurazione delle sponsorizzazioni Facebook/Instagram.</span>
+          </div>
+          <label class="cookie-toggle" aria-label="Cookie di marketing">
+            <input type="checkbox" id="toggleMarketing">
+            <span></span>
+          </label>
+        </div>
+        <div class="cookie-prefs-actions">
+          <button id="cookieBack" class="cookie-btn cookie-btn-reject">← Indietro</button>
+          <button id="cookieSave" class="cookie-btn cookie-btn-accept">Salva preferenze</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <script src="script.js"></script>
 

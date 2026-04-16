@@ -21,12 +21,31 @@ if (heroVideo && heroVideo.tagName === 'VIDEO') {
   });
 }
 
+const footer = document.querySelector('footer');
+const GAP = 16;
+let rafPending = false;
+
+function updateBackToTopPosition() {
+  const footerRect = footer.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const newBottom = footerRect.top < viewportHeight
+    ? (viewportHeight - footerRect.top + GAP) + 'px'
+    : '32px';
+  backToTopBtn.style.bottom = newBottom;
+  rafPending = false;
+}
+
 window.addEventListener('scroll', () => {
   // Back to top button visibility
   if (window.scrollY > 300) {
     backToTopBtn.classList.add('visible');
   } else {
     backToTopBtn.classList.remove('visible');
+  }
+
+  if (!rafPending) {
+    rafPending = true;
+    requestAnimationFrame(updateBackToTopPosition);
   }
 
   // Hero scroll indicator visibility
@@ -76,6 +95,141 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 sections.forEach(section => observer.observe(section));
+
+// ── COOKIE CONSENT ──
+const CONSENT_KEY = 'nina_cookie_consent';
+const cookieBanner   = document.getElementById('cookieBanner');
+const cookieMain     = document.getElementById('cookieMain');
+const cookiePrefs    = document.getElementById('cookiePrefs');
+const cookieAccept   = document.getElementById('cookieAccept');
+const cookieReject   = document.getElementById('cookieReject');
+const cookieCustomize = document.getElementById('cookieCustomize');
+const cookieBack     = document.getElementById('cookieBack');
+const cookieSave     = document.getElementById('cookieSave');
+const toggleAnalytics = document.getElementById('toggleAnalytics');
+const toggleMarketing = document.getElementById('toggleMarketing');
+
+function hideBanner() {
+  cookieBanner.classList.remove('cookie-banner-visible');
+  cookieBanner.addEventListener('transitionend', () => {
+    cookieBanner.hidden = true;
+    // Reset to main view for next time
+    cookiePrefs.hidden = true;
+    cookieMain.hidden = false;
+  }, { once: true });
+}
+
+function loadAnalytics() {
+  // ═══ ATTIVA QUANDO AGGIUNGI GOOGLE ANALYTICS ═══
+  // if (!document.getElementById('ga-script')) {
+  //   const s = document.createElement('script');
+  //   s.id = 'ga-script';
+  //   s.async = true;
+  //   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+  //   document.head.appendChild(s);
+  //   window.dataLayer = window.dataLayer || [];
+  //   function gtag(){ dataLayer.push(arguments); }
+  //   gtag('js', new Date());
+  //   gtag('config', 'G-XXXXXXXXXX');
+  // }
+}
+
+function loadMarketing() {
+  // ═══ ATTIVA QUANDO AGGIUNGI FACEBOOK PIXEL ═══
+  // if (!window.fbq) {
+  //   !function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  //   fbq('init', 'XXXXXXXXXXXXXXXXXX');
+  //   fbq('track', 'PageView');
+  // }
+}
+
+function applyConsent(prefs) {
+  if (prefs.analytics) loadAnalytics();
+  if (prefs.marketing) loadMarketing();
+}
+
+// Init from saved consent
+const savedConsent = localStorage.getItem(CONSENT_KEY);
+if (!savedConsent) {
+  cookieBanner.hidden = false;
+  requestAnimationFrame(() => cookieBanner.classList.add('cookie-banner-visible'));
+} else if (savedConsent === 'accepted') {
+  applyConsent({ analytics: true, marketing: true });
+} else if (savedConsent !== 'rejected') {
+  try {
+    const prefs = JSON.parse(savedConsent);
+    applyConsent(prefs);
+  } catch(e) { /* ignore malformed */ }
+}
+
+// Accetta tutto
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem(CONSENT_KEY, 'accepted');
+  hideBanner();
+  applyConsent({ analytics: true, marketing: true });
+});
+
+// Solo necessari
+cookieReject.addEventListener('click', () => {
+  localStorage.setItem(CONSENT_KEY, 'rejected');
+  hideBanner();
+});
+
+// Personalizza – mostra pannello preferenze
+cookieCustomize.addEventListener('click', () => {
+  // Pre-check toggles based on existing consent
+  if (savedConsent === 'accepted') {
+    toggleAnalytics.checked = true;
+    toggleMarketing.checked = true;
+  } else if (savedConsent && savedConsent !== 'rejected') {
+    try {
+      const prefs = JSON.parse(savedConsent);
+      toggleAnalytics.checked = !!prefs.analytics;
+      toggleMarketing.checked = !!prefs.marketing;
+    } catch(e) {}
+  }
+  cookieMain.hidden = true;
+  cookiePrefs.hidden = false;
+});
+
+// Indietro
+cookieBack.addEventListener('click', () => {
+  cookiePrefs.hidden = true;
+  cookieMain.hidden = false;
+});
+
+// Riapertura da footer
+document.getElementById('openCookieSettings').addEventListener('click', () => {
+  const current = localStorage.getItem(CONSENT_KEY);
+  if (current === 'accepted') {
+    toggleAnalytics.checked = true;
+    toggleMarketing.checked = true;
+  } else if (current && current !== 'rejected') {
+    try {
+      const prefs = JSON.parse(current);
+      toggleAnalytics.checked = !!prefs.analytics;
+      toggleMarketing.checked = !!prefs.marketing;
+    } catch(e) {}
+  } else {
+    toggleAnalytics.checked = false;
+    toggleMarketing.checked = false;
+  }
+  cookiePrefs.hidden = false;
+  cookieMain.hidden = true;
+  cookieBanner.hidden = false;
+  requestAnimationFrame(() => cookieBanner.classList.add('cookie-banner-visible'));
+});
+
+// Salva preferenze
+cookieSave.addEventListener('click', () => {
+  const prefs = {
+    analytics: toggleAnalytics.checked,
+    marketing: toggleMarketing.checked
+  };
+  localStorage.setItem(CONSENT_KEY, JSON.stringify(prefs));
+  hideBanner();
+  applyConsent(prefs);
+});
 
 // FAQ accordion
 document.querySelectorAll('.faq-question').forEach(btn => {
