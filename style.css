@@ -631,6 +631,16 @@ footer img {
   color: rgba(255,255,255,0.35);
 }
 
+.footer-instagram {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-instagram:hover {
+  color: #fff;
+}
+
 /* ── BACK TO TOP ── */
 .back-to-top {
   position: fixed;
