@@ -1,5 +1,5 @@
-# NOTA: sostituire "https://nina-lampedusa.it" con il dominio definitivo
+# NOTA: sostituire "https://barcaninalampedusa.it" con il dominio definitivo
 User-agent: *
 Allow: /
 
-Sitemap: https://nina-lampedusa.it/sitemap.xml
+Sitemap: https://barcaninalampedusa.it/sitemap.xml
