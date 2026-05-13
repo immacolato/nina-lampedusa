@@ -1,3 +1,7 @@
+// Update copyright year dynamically
+const yearEl = document.getElementById('copyright-year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
 const backToTopBtn = document.getElementById('backToTop');
 const heroScroll = document.querySelector('.hero-scroll');
 const heroVideo = document.querySelector('.hero-bg');
