@@ -1,0 +1,54 @@
+# ═══ CACHING & PERFORMANCE ═══
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Immagini – 1 anno
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  # Video – 1 anno
+  ExpiresByType video/mp4 "access plus 1 year"
+  # CSS & JS – 1 anno
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  # Font – 1 anno
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  # HTML – 1 ora (per aggiornamenti frequenti)
+  ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# ═══ COMPRESSIONE ═══
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml font/ttf font/otf
+</IfModule>
+
+# ═══ REDIRECT HTTP → HTTPS (Aruba-safe, evita loop da proxy SSL) ═══
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect HTTP → HTTPS (salta se già gestito da proxy Aruba)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Redirect www → non-www
+  RewriteCond %{HTTP_HOST} ^www\.barcaninalampedusa\.it [NC]
+  RewriteRule ^(.*)$ https://barcaninalampedusa.it/$1 [R=301,L]
+</IfModule>
+
+# ═══ SECURITY HEADERS ═══
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(self), microphone=()"
+</IfModule>
+
+# ═══ KEEP-ALIVE ═══
+<IfModule mod_headers.c>
+  Header set Connection keep-alive
+</IfModule>

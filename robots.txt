@@ -1,5 +1,5 @@
-# NOTA: sostituire "https://barcaninalampedusa.it" con il dominio definitivo
 User-agent: *
 Allow: /
+Disallow: /privacy.html
 
 Sitemap: https://barcaninalampedusa.it/sitemap.xml
